@@ -1,0 +1,16 @@
+Resources:
+  technosglambda:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: sg for lambda
+      GroupName: techno-sg-lambda
+      "SecurityGroupEgress" : [{
+                "IpProtocol" : "tcp",
+                "FromPort" : 80,
+                "ToPort" : 80,
+                "CidrIp" : "0.0.0.0/0"
+            }]
+      VpcId: vpc-0a8edc9294c2d713c
+
+  
+  

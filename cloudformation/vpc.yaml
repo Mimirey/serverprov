@@ -1,0 +1,57 @@
+Resources:
+  technovpcserverless:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 35.10.0.0/18
+      EnableDnsSupport: 'true'
+      EnableDnsHostnames: 'true'
+      Tags:
+       - Key: stack
+         Value: production
+  ipv6CidrBlock:
+    Type: AWS::EC2::VPCCidrBlock
+    Properties:
+      VpcId: !Ref technovpcserverless
+      AmazonProvidedIpv6CidrBlock: true
+  
+  technosubnetpublic1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref technovpcserverless
+      CidrBlock: 35.10.0.0/25
+      AvailabilityZone: "us-east-1a"
+      Tags:
+      - Key: stack
+        Value: production
+  
+  technosubnetpublic2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref technovpcserverless
+      CidrBlock: 35.10.1.0/25
+      AvailabilityZone: "us-east-1b"
+      Tags:
+      - Key: stack
+        Value: production
+
+  technosubnetprivate1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref technovpcserverless
+      CidrBlock: 35.10.11.0/25
+      AvailabilityZone: "us-east-1a"
+      Tags:
+      - Key: stack
+        Value: production
+  
+  technosubnetprivate2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref technovpcserverless
+      CidrBlock: 35.10.12.0/25
+      AvailabilityZone: "us-east-1b"
+      Tags:
+      - Key: stack
+        Value: production
+
+

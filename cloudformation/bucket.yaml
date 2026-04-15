@@ -1,0 +1,9 @@
+Type: AWS::SecretsManager::Secret
+Properties:
+  Description: secrets for auto
+  Name: techno-secret-rds-credentials
+  SecretString: 
+    String
+  Tags: 
+    - Tag
+  Type: String
